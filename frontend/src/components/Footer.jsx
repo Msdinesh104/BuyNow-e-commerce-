@@ -50,7 +50,6 @@ const Footer = () => {
           <div>
             <h4 className="text-white font-semibold mb-4">Shop</h4>
             <ul className="space-y-2 text-sm">
-              <li><Link to="/" className="hover:text-white">Home</Link></li>
               <li><Link to="/products" className="hover:text-white">Products</Link></li>
               <li><Link to="/cart" className="hover:text-white">Cart</Link></li>
               <li><Link to="/account" className="hover:text-white">My Account</Link></li>
@@ -110,13 +109,11 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 py-5 flex flex-col md:flex-row justify-between items-center gap-3 text-sm">
+        <div className="max-w-7xl mx-auto px-4 py-5 flex flex-col md:flex-row justify-center items-center gap-3 text-sm">
           <p className="text-gray-400">
             © 2026 BuyNow. All rights reserved.
           </p>
-          <p className="text-gray-500">
-            Built with ❤️ for a better shopping experience
-          </p>
+          
         </div>
       </div>
     </footer>
