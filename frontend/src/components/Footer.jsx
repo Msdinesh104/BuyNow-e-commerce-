@@ -1,77 +1,108 @@
 import { Link } from "react-router-dom";
-import { FaStore, FaEnvelope, FaPhone, FaMapMarkerAlt, } from "react-icons/fa";
+import {
+  FaStore,
+  FaEnvelope,
+  FaPhone,
+  FaMapMarkerAlt,
+  FaFacebookF,
+  FaInstagram,
+  FaTwitter,
+  FaLinkedinIn,
+} from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-gray-300">
-      {/* Main Footer Content */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className="bg-gray-950 text-gray-300">
+      {/* Main Footer */}
+      <div className="max-w-7xl mx-auto px-4 py-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
 
-          {/* About Section */}
+          {/* Brand Section */}
           <div>
             <div className="flex items-center gap-2 mb-4">
               <FaStore className="text-3xl text-blue-500" />
               <h3 className="text-2xl font-bold text-white">BuyNow</h3>
             </div>
-            <p className="text-gray-400 text-sm mb-4">
-              Your one-stop shop for quality products at amazing prices. Shop with confidence and enjoy fast delivery.
+
+            <p className="text-gray-400 text-sm leading-relaxed mb-6">
+              BuyNow is your trusted online shopping platform offering quality
+              products, secure payments, and fast delivery across India.
             </p>
 
+            {/* Social Icons */}
+            <div className="flex gap-3">
+              <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-blue-600 transition">
+                <FaFacebookF className="text-white text-sm" />
+              </a>
+              <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-pink-600 transition">
+                <FaInstagram className="text-white text-sm" />
+              </a>
+              <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-sky-500 transition">
+                <FaTwitter className="text-white text-sm" />
+              </a>
+              <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-blue-700 transition">
+                <FaLinkedinIn className="text-white text-sm" />
+              </a>
+            </div>
           </div>
 
-          {/* Quick Links */}
+          {/* Shop Links */}
           <div>
-            <h4 className="text-white font-semibold text-lg mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link to="/" className="text-gray-400 hover:text-white transition-colors flex items-center gap-2">
-                  <span className="text-blue-500">›</span> Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/products" className="text-gray-400 hover:text-white transition-colors flex items-center gap-2">
-                  <span className="text-blue-500">›</span> Products
-                </Link>
-              </li>
-              <li>
-                <Link to="/cart" className="text-gray-400 hover:text-white transition-colors flex items-center gap-2">
-                  <span className="text-blue-500">›</span> Shopping Cart
-                </Link>
-              </li>
-              <li>
-                <Link to="/account" className="text-gray-400 hover:text-white transition-colors flex items-center gap-2">
-                  <span className="text-blue-500">›</span> My Account
-                </Link>
-              </li>
+            <h4 className="text-white font-semibold mb-4">Shop</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link to="/" className="hover:text-white">Home</Link></li>
+              <li><Link to="/products" className="hover:text-white">Products</Link></li>
+              <li><Link to="/cart" className="hover:text-white">Cart</Link></li>
+              <li><Link to="/account" className="hover:text-white">My Account</Link></li>
+              <li><Link to="/orders" className="hover:text-white">Orders</Link></li>
             </ul>
           </div>
 
-
-          {/* Contact Info */}
+          {/* Support Links */}
           <div>
-            <h4 className="text-white font-semibold text-lg mb-4">Contact Info</h4>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-3 text-gray-400">
-                <FaMapMarkerAlt className="text-blue-500 mt-1 flex-shrink-0" />
-                <span className="text-sm  hover:text-white hover:cursor-pointer">
-                  Dindigul,<br />
-                  Tamil Nadu, India
-                </span>
+            <h4 className="text-white font-semibold mb-4">Support</h4>
+            <ul className="space-y-2 text-sm">
+              <li><Link to="/help" className="hover:text-white">Help Center</Link></li>
+              <li><Link to="/returns" className="hover:text-white">Returns</Link></li>
+              <li><Link to="/shipping" className="hover:text-white">Shipping</Link></li>
+              <li><Link to="/privacy" className="hover:text-white">Privacy Policy</Link></li>
+              <li><Link to="/terms" className="hover:text-white">Terms & Conditions</Link></li>
+            </ul>
+          </div>
+
+          {/* Contact + Newsletter */}
+          <div>
+            <h4 className="text-white font-semibold mb-4">Contact</h4>
+
+            <ul className="space-y-3 text-sm mb-5">
+              <li className="flex gap-3">
+                <FaMapMarkerAlt className="text-blue-500 mt-1" />
+                <span>Dindigul, Tamil Nadu, India</span>
               </li>
-              <li className="flex items-center gap-3 text-gray-400">
-                <FaPhone className="text-blue-500 flex-shrink-0" />
-                <a className="text-sm hover:text-white hover:cursor-pointer transition-color">
-                  +91 123 456 7890
-                </a>
+              <li className="flex gap-3">
+                <FaPhone className="text-blue-500" />
+                <span>+91 123 456 7890</span>
               </li>
-              <li className="flex items-center gap-3 text-gray-400 hover:cursor-pointer">
-                <FaEnvelope className="text-blue-500 flex-shrink-0" />
-                <a className="text-sm hover:text-white transition-colors">
-                  Buynow@gmail.com
-                </a>
+              <li className="flex gap-3">
+                <FaEnvelope className="text-blue-500" />
+                <span>buynow@gmail.com</span>
               </li>
             </ul>
+
+            {/* Newsletter */}
+            <p className="text-sm text-gray-400 mb-2">
+              Subscribe for offers & updates
+            </p>
+            <div className="flex">
+              <input
+                type="email"
+                placeholder="Your email"
+                className="w-full px-3 py-2 bg-gray-800 text-white text-sm rounded-l outline-none"
+              />
+              <button className="px-4 bg-blue-600 hover:bg-blue-700 text-white text-sm rounded-r transition">
+                Join
+              </button>
+            </div>
           </div>
 
         </div>
@@ -79,34 +110,15 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-800">
-        <div className="max-w-7xl mx-auto px-4 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-gray-400">
-              © 2026 BuyNow. All rights reserved.
-            </p>
-
-
-
-            <div className="flex gap-4 text-sm">
-              <Link className="text-gray-400 hover:text-white transition-colors">
-                Privacy
-              </Link>
-              <span className="text-gray-400">|</span>
-              <Link className="text-gray-400 hover:text-white transition-colors">
-                Terms
-              </Link>
-              <span className="text-gray-400">|</span>
-              <Link className="text-gray-400 hover:text-white transition-colors">
-                Contact
-              </Link>
-            </div>
-
-          </div>
-
+        <div className="max-w-7xl mx-auto px-4 py-5 flex flex-col md:flex-row justify-between items-center gap-3 text-sm">
+          <p className="text-gray-400">
+            © 2026 BuyNow. All rights reserved.
+          </p>
+          <p className="text-gray-500">
+            Built with ❤️ for a better shopping experience
+          </p>
         </div>
-
       </div>
-
     </footer>
   );
 };

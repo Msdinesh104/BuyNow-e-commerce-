@@ -9,9 +9,7 @@ const Home = () => {
 
   useEffect(() => {
     const closed = sessionStorage.getItem("offerClosed");
-    if (closed === "true") {
-      setShowOffer(false);
-    }
+    if (closed === "true") setShowOffer(false);
   }, []);
 
   const closeOffer = () => {
@@ -20,49 +18,68 @@ const Home = () => {
   };
 
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <div className="bg-gray-950 text-white min-h-screen">
 
-      {/* 🔥 OFFER BANNER */}
+      {/* ✨ GLASS OFFER BANNER */}
       {showOffer && (
-        <div className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 relative">
+        <div className="backdrop-blur bg-white/10 border-b border-white/10 py-3 relative">
           <p className="text-center text-sm md:text-base font-semibold">
-            🎉 <span className="text-yellow-300">Flat 35% OFF</span> for First 30 Customers — Limited Time!
+            🚀 <span className="text-yellow-400">35% OFF</span> for first 30 customers — Don’t miss out!
           </p>
-
           <button
             onClick={closeOffer}
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-xl font-bold hover:text-yellow-300 transition"
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-xl hover:text-red-400 transition"
           >
             ×
           </button>
         </div>
       )}
 
-      {/* HERO SECTION */}
-      <section className="max-w-7xl mx-auto px-4 py-20 text-center">
-        <h1 className="text-4xl md:text-6xl font-bold text-blue-800 mb-6">
-          Welcome to <span className="text-blue-700">BuyNow</span>
-        </h1>
+      {/* HERO */}
+      <section className="max-w-7xl mx-auto px-4 py-24 grid grid-cols-1 md:grid-cols-2 gap-14 items-center">
+        <div>
+          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+            Shop Smarter with{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">
+              BuyNow
+            </span>
+          </h1>
 
-        <p className="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto mb-10">
-          Premium products. Trusted quality. Simple shopping experience.
-        </p>
+          <p className="text-gray-400 text-lg mb-8">
+            Discover premium products, unbeatable prices, and seamless checkout —
+            all in one place.
+          </p>
 
-        <Link
-          to="/products"
-          className="inline-block bg-blue-800 hover:bg-blue-700 text-white px-10 py-4 rounded-lg text-lg font-semibold shadow-lg transition"
-        >
-          Explore Products →
-        </Link>
+          <div className="flex gap-4">
+            <Link
+              to="/products"
+              className="bg-blue-600 hover:bg-blue-700 px-8 py-4 rounded-lg font-semibold transition"
+            >
+              Shop Now
+            </Link>
+          </div>
+        </div>
+
+        {/* Visual */}
+        <div className="relative">
+          <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/30 to-indigo-500/30 rounded-3xl blur-2xl" />
+          <div className="relative bg-gray-900 rounded-3xl p-10 text-center shadow-xl">
+            <p className="text-7xl mb-4">🛍️</p>
+            <h3 className="text-xl font-semibold">Premium Shopping</h3>
+            <p className="text-gray-400 mt-2 text-sm">
+              Secure • Fast • Reliable
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* CATEGORIES */}
-      <section className="max-w-7xl mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">
-          Shop by Category
+      <section className="max-w-7xl mx-auto px-4 py-20">
+        <h2 className="text-3xl font-bold text-center mb-14">
+          Browse Categories
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
             { icon: "💻", title: "Electronics" },
             { icon: "🧥", title: "Fashion" },
@@ -71,36 +88,37 @@ const Home = () => {
             <Link
               key={cat.title}
               to="/products"
-              className="bg-white rounded-xl shadow hover:shadow-lg transition p-8 text-center"
+              className="group bg-gray-900 border border-gray-800 rounded-2xl p-10 text-center hover:border-blue-500 transition"
             >
-              <div className="text-5xl mb-4">{cat.icon}</div>
-              <h3 className="text-xl font-semibold text-blue-800">
-                {cat.title}
-              </h3>
+              <div className="text-6xl mb-6 group-hover:scale-110 transition">
+                {cat.icon}
+              </div>
+              <h3 className="text-xl font-semibold">{cat.title}</h3>
             </Link>
           ))}
         </div>
       </section>
 
-      {/* WHY CHOOSE US */}
-      <section className="bg-white py-16">
+      {/* WHY US */}
+      <section className="bg-gradient-to-r from-gray-900 to-gray-800 py-20">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">
-            Why Shop With Us?
+          <h2 className="text-3xl font-bold text-center mb-14">
+            Why Choose BuyNow?
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 text-center">
             {[
-              { icon: "🚚", title: "Free Shipping" },
-              { icon: "🔒", title: "Secure Payment" },
+              { icon: "🚚", title: "Fast Delivery" },
+              { icon: "🔐", title: "Secure Payments" },
               { icon: "↩️", title: "Easy Returns" },
               { icon: "⭐", title: "Top Quality" },
             ].map((item) => (
-              <div key={item.title} className="p-6">
+              <div
+                key={item.title}
+                className="bg-gray-900 p-8 rounded-xl border border-gray-800 hover:border-blue-500 transition"
+              >
                 <div className="text-5xl mb-4">{item.icon}</div>
-                <h3 className="text-lg font-semibold text-blue-800">
-                  {item.title}
-                </h3>
+                <h3 className="font-semibold">{item.title}</h3>
               </div>
             ))}
           </div>
@@ -108,16 +126,16 @@ const Home = () => {
       </section>
 
       {/* CTA */}
-      <section className="max-w-7xl mx-auto px-4 py-20 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-blue-800 mb-6">
-          Ready to Start Shopping?
+      <section className="max-w-7xl mx-auto px-4 py-24 text-center">
+        <h2 className="text-4xl font-bold mb-6">
+          Start Your Shopping Journey Today
         </h2>
 
         <Link
           to="/products"
-          className="inline-block bg-blue-800 hover:bg-blue-700 text-white px-12 py-4 rounded-lg text-lg font-semibold shadow-lg transition"
+          className="inline-block mt-6 bg-gradient-to-r from-blue-600 to-indigo-600 px-14 py-4 rounded-xl font-semibold hover:opacity-90 transition"
         >
-          Browse All Products →
+          Explore Products →
         </Link>
       </section>
 
